@@ -46,8 +46,6 @@ group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'web-console', '>= 3.3.0'
-  gem "rubocop", "0.48.1"
-  gem "rubocop-rails"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
