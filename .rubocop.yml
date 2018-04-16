@@ -7,6 +7,3 @@ Style/StringLiterals:
 
 Style/StringLiteralsInInterpolation:
   Enabled: false
-
-Style/IndentationConsistency:
-  EnforcedStyle: normal

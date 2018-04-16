@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :authenticate_user!
+
   def new
     @post = current_user.posts.build
   end
@@ -11,6 +12,7 @@ class PostsController < ApplicationController
   end
 
   def index
+    @post = current_user.posts.build
     @posts = Post.all.order(created_at: :desc)
   end
 
@@ -22,23 +24,21 @@ class PostsController < ApplicationController
   end
 
   def update
-  @post = Post.find params[:id]
+    @post = Post.find(params[:id])
 
-  respond_to do |format|
-    if @post.update_attributes(post_params)
-      format.html { redirect_to(@post, :notice => 'Posts was successfully updated.') }
-      format.json { respond_with_bip(@post) }
-    else
-      format.html { render :action => "edit" }
+    respond_to do |format|
+      if @post.update_attributes(post_params)
+        format.html { redirect_to(@post, notice: 'Post was successfully updated.') }
+      else
+        format.html { render action: 'edit' }
+      end
       format.json { respond_with_bip(@post) }
     end
   end
-end
-
 
   private
 
-  def post_params
-    params.require(:post).permit(:message)
-  end
+    def post_params
+      params.require(:post).permit(:message)
+    end
 end

@@ -3,12 +3,12 @@ require 'rails_helper'
 RSpec.describe PostsController, type: :controller do
 
   before (:each) do
-    @user = User.create!({
-      :name => 'Test User',
-      :email => 'user@test.com',
-      :password => 'password',
-      :password_confirmation => 'password'
-      })
+    @user = User.create!(
+        name: 'Test User',
+        email: 'user@test.com',
+        password: 'password',
+        password_confirmation: 'password'
+      )
     sign_in @user
   end
 
